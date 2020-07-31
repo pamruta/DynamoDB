@@ -1,0 +1,7 @@
+aws dynamodb scan --table "Artist" --filter-expression 'address.city = :cty' --expression-attribute-values '{":cty": {"S": "London"}}'
+
+aws dynamodb scan --table "Artist" --filter-expression 'contains(skills, :job)' --expression-attribute-values '{":job": {"S": "Video Editing"}}'
+
+aws dynamodb scan --table "Artist" --filter-expression 'contains(tools, :tech)' --expression-attribute-values '{":tech": {"S": "Final Cut Pro"}}'
+
+aws dynamodb scan --table "Artist" --filter-expression 'contains(tools, :tech)' --expression-attribute-values '{":tech": {"S": "3D Max"}}'

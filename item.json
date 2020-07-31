@@ -1,0 +1,21 @@
+{
+	"name": "Robin Williams",
+	"address": {
+		"city": "Sydney",
+		"country": "AU"
+	},
+	"tools": [
+		"Pro Tools", "Ableton", "Logic Pro"
+	],
+	"skills": ["Sound Mixing", "Music Composition"],
+	"email": "robin@gmail.com",
+	"phone": "+61 789-123-456",
+	"social": {
+		"linkedin": "NA",
+		"twitter": "NA",
+		"facebook": "NA",
+		"instagram": "NA",
+		"youtube": "NA",
+		"behance": "NA"
+	}
+}

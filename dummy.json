@@ -1,0 +1,131 @@
+[{
+		"name": "Will Smith",
+		"address": {
+			"city": "Los Angeles",
+			"country": "US"
+		},
+		"tools": [
+			"Adobe Premier", "After Effects"
+		],
+		"skills": ["Video Editing", "VFx"],
+		"email": "will@gmail.com",
+		"phone": "+1 123-456-789",
+		"social": {
+			"linkedin": "NA",
+			"twitter": "NA",
+			"facebook": "NA",
+			"instagram": "NA",
+			"youtube": "NA",
+			"behance": "NA"
+		}
+	},
+	{
+		"name": "Brad Pitt",
+		"address": {
+			"city": "New York",
+			"country": "US"
+		},
+		"tools": [
+			"Maya", "3D Max", "Unreal Engine"
+		],
+		"skills": ["3D Modeling", "Animation"],
+		"email": "brad@gmail.com",
+		"phone": "+1 234-567-891",
+		"social": {
+			"linkedin": "NA",
+			"twitter": "NA",
+			"facebook": "NA",
+			"instagram": "NA",
+			"youtube": "NA",
+			"behance": "NA"
+		}
+	},
+
+	{
+		"name": "Bruce Willis",
+		"address": {
+			"city": "London",
+			"country": "UK"
+		},
+		"tools": [
+			"Avid Pro Tools", "Final Cut Pro"
+		],
+		"skills": ["Film-Making", "TV Production"],
+		"email": "bwillis@gmail.com",
+		"phone": "+44 345-678-912",
+		"social": {
+			"linkedin": "NA",
+			"twitter": "NA",
+			"facebook": "NA",
+			"instagram": "NA",
+			"youtube": "NA",
+			"behance": "NA"
+		}
+	},
+
+	{
+		"name": "Tom Cruise",
+		"address": {
+			"city": "Mumbai",
+			"country": "IN"
+		},
+		"tools": [
+			"Logic Pro", "Ableton"
+		],
+		"skills": ["Sound Engineering", "Music Production"],
+		"email": "cruise@gmail.com",
+		"phone": "+91 456-789-123",
+		"social": {
+			"linkedin": "NA",
+			"twitter": "NA",
+			"facebook": "NA",
+			"instagram": "NA",
+			"youtube": "NA",
+			"behance": "NA"
+		}
+	},
+
+	{
+		"name": "Demi Moore",
+		"address": {
+			"city": "Los Angeles",
+			"country": "US"
+		},
+		"tools": [
+			"Unity", "Blender", "Unreal Engine"
+		],
+		"skills": ["VFX", "CGI", "AR/VR"],
+		"email": "moore@gmail.com",
+		"phone": "+1 567-891-234",
+		"social": {
+			"linkedin": "NA",
+			"twitter": "NA",
+			"facebook": "NA",
+			"instagram": "NA",
+			"youtube": "NA",
+			"behance": "NA"
+		}
+	},
+
+	{
+		"name": "Jackie Chan",
+		"address": {
+			"city": "Singapore",
+			"country": "SG"
+		},
+		"tools": [
+			"Adobe Premier", "Final Cut Pro", "After Effects"
+		],
+		"skills": ["Video Editing", "VFx"],
+		"email": "jchan@gmail.com",
+		"phone": "+61 678-912-345",
+		"social": {
+			"linkedin": "NA",
+			"twitter": "NA",
+			"facebook": "NA",
+			"instagram": "NA",
+			"youtube": "NA",
+			"behance": "NA"
+		}
+	}
+]

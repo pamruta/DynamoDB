@@ -1,0 +1,33 @@
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<script>
+  fetch("http://localhost:5000/fetch").
+  then(response => response.json()).
+  then(data => stylize(data));
+
+  function stylize(data)
+  {
+    for(i=0; i < data.length; i++)
+    {
+      var card = document.createElement('div');
+      card.class = "card";
+      card.style = "width:350px; float: left; border: 3px solid #0489b1; font-size: 20px; font-family: Nova Square; padding: 10px; margin: 10px";
+      card.innerHTML = data[i]['name'] + " <br> " + data[i]['email'] + " <br> " + data[i]['phone'] + " <br> " + data[i]['skills'] + " <br> " + data[i]['tools'] + " <br> " + data[i]['address']['city'] + ", " + data[i]['address']['country'];
+      document.body.appendChild(card);
+
+      console.log(data[i]['name']);
+      console.log(data[i]['address']['city']);
+      console.log(data[i]['skills']);
+      console.log(data[i]['tools']);
+      console.log(data[i]['phone']);
+      console.log(data[i]['email']);
+    }
+  }
+</script>
+</body>
+</html>
