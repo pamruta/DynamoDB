@@ -5,16 +5,93 @@
 
 <body>
 
+<style>
+
+  body
+  {
+    font-family: 'Nova Square';
+  }
+
+  .heading
+  {
+    font-size: 30px;
+    text-align: center;
+    padding: 30px;
+  }
+
+  select
+  {
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    box-shadow: 5px 5px 5px #d8d8d8;
+    border: 1px solid #e6e6e6;
+  }
+
+  .filters
+  {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 3px solid #585858;
+    background: #d8d8d8;
+  }
+
+  label
+  {
+    font-size: 20px;
+    margin-left: 30px;
+  }
+
+  .content
+  {
+    padding: 30px;
+  }
+</style>
+
+<div class=heading>
+  Creative Contributors Database
+</div>
+
+<div class=filters>
+  <label for="tools">Tool: </label>
+  <select name="tools" id="tools" onchange="change_filter()">
+    <option selected value="All">All</option>
+  </select>
+
+  <label for="skills">Skill: </label>
+  <select name="skills" id="skills" onchange="change_filter()">
+    <option selected value="All">All</option>
+  </select>
+
+  <label for="cities">City: </label>
+  <select name="cities" id="cities" onchange="change_filter()">
+    <option selected value="All">All</option>
+  </select>
+</div>
+
+<div class=content id="container">
+</div>
+
 <script>
 
+  // add filter options
+  create_filters();
   // user fetch profiles from database
   fetch_data();
 
-  function fetch_data()
+  // fetch data to load user profiles
+  function fetch_data(filter_expr)
   {
-    // fetch data to load user profiles
+    // API end-point
     var url = "http://localhost:5000/fetch";
-    // add filter parameters to url
+    // add filter options to url
+    if(filter_expr != "")
+    {
+      url += "?" + filter_expr;
+    }
 
     // process API response
     fetch(url).
@@ -25,14 +102,92 @@
   // print data on UI
   function stylize(data)
   {
+    var container = document.getElementById('container');
     for(i=0; i < data.length; i++)
     {
       var card = document.createElement('div');
-      card.style = "width:350px; float: left; border: 1px solid #d8d8d8; box-shadow: 5px 5px 5px #bdbdbd; font-size: 16px; font-family: Nova Square; margin: 20px; padding: 20px";
+      card.style = "width:350px; float: left; border: 1px solid #d8d8d8; box-shadow: 5px 5px 5px #bdbdbd; font-size: 16px; margin: 20px; padding: 20px";
 
       card.innerHTML = data[i]['name'] + " <br><br> " + data[i]['email'] + " | " + data[i]['phone'] + " <br><br> [" + data[i]['skills'] + "] <br><br> [" + data[i]['tools'] + "] <br><br> " + data[i]['address']['city'] + ", " + data[i]['address']['country'];
-      document.body.appendChild(card);
+      container.appendChild(card);
     }
+  }
+
+  // add filter options
+  function create_filters()
+  {
+    const skill_options = ['Video Editing', 'VFx', 'Animation', 'Motion Graphics', '3D Modeling', 'CGI', 'Sound Mixing', 'Music Composition', 'AR/VR', 'Photography', 'Cinematography', 'Voice-Over', 'TV Production', 'Film-Making'];
+    const tool_options = ['Adobe Premier', 'After Effects', 'Adobe Illustrator', 'Photoshop', 'Avid Pro Tools', 'Final Cut Pro', 'Logic Pro', 'Ableton', '3D Max', 'Maya', 'Cinema 4D', 'Unity', 'Unreal Engine', 'Z Brush'];
+    const city_options = ['Los Angeles', 'New York', 'London', 'Singapore', 'Tokyo', 'Mumbai', 'Sydney', 'Paris', 'Vancouver', 'Toronto']
+
+    const select_skill = document.getElementById('skills');
+    const select_tool = document.getElementById('tools');
+    const select_city = document.getElementById('cities');
+
+    // add skill options
+    for(i=0; i < skill_options.length; i++)
+    {
+      var option = document.createElement('option');
+      option.value = skill_options[i];
+      option.innerHTML = skill_options[i];
+      select_skill.appendChild(option);
+    }
+
+    // add tool options
+    for(i=0; i < tool_options.length; i++)
+    {
+      var option = document.createElement('option');
+      option.value = tool_options[i];
+      option.innerHTML = tool_options[i];
+      select_tool.appendChild(option);
+    }
+
+    // add city options
+    for(i=0; i < city_options.length; i++)
+    {
+      var option = document.createElement('option');
+      option.value = city_options[i];
+      option.innerHTML = city_options[i];
+      select_city.appendChild(option);
+    }
+  }
+
+  // filter options changed
+  function change_filter()
+  {
+    var skill_value = document.getElementById('skills').value;
+    var tool_value = document.getElementById('tools').value;
+    var city_value = document.getElementById('cities').value;
+    var filter_expr = "";
+
+    // add skill filter
+    if (skill_value != "All")
+    {
+      filter_expr = "skill=" + skill_value;
+    }
+
+    // add tool filter
+    if(tool_value != "All")
+    {
+      if(filter_expr != "")
+      {
+        filter_expr += "&";
+      }
+      filter_expr += "tool=" + tool_value;
+    }
+
+    // add city filter
+    if(city_value != "All")
+    {
+      if(filter_expr != "")
+      {
+        filter_expr += "&";
+      }
+      filter_expr += "city=" + city_value;
+    }
+
+    document.getElementById('container').innerHTML = "";
+    fetch_data(filter_expr);
   }
 </script>
 </body>

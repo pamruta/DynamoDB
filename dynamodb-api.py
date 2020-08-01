@@ -9,7 +9,7 @@ dynamo = boto3.resource('dynamodb')
 table = dynamo.Table('Artist')
 
 # fetch data with given filters
-def fetch_data(city_name="", country_name="", job_role="", tool=""):
+def fetch_data(city_name="", country_name="", skill="", tool=""):
 
     # filter by city
     if(city_name):
@@ -25,15 +25,15 @@ def fetch_data(city_name="", country_name="", job_role="", tool=""):
         else:
             filter_expr = filter_expr & Attr('address.country').eq(country_name)
 
-    # filter by job function
-    if(job_role):
+    # filter by skill
+    if(skill):
 
         try:
             filter_expr
         except NameError:
-            filter_expr = Attr('skills').contains(job_role)
+            filter_expr = Attr('skills').contains(skill)
         else:
-            filter_expr = filter_expr & Attr('skills').contains(job_role)
+            filter_expr = filter_expr & Attr('skills').contains(skill)
 
     # filter by tools and technologies
     if(tool):
@@ -94,12 +94,12 @@ def get_data():
     else:
         tool = ""
 
-    if 'job_role' in request.args:
-        job_role = request.args['job_role']
+    if 'skill' in request.args:
+        skill = request.args['skill']
     else:
-        job_role = ""
+        skill = ""
 
-    return fetch_data(city_name=city, country_name=country, job_role=job_role, tool=tool)
+    return fetch_data(city_name=city, country_name=country, skill=skill, tool=tool)
 
 # start service at given port
 import sys
