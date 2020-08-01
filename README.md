@@ -14,10 +14,16 @@ Internally, dynamodb-api.py uses AWS SDK boto3 to fetch data from Dynamo-DB tabl
 Front-end is built in HTML + CSS + Javascript and internally, calls the REST APIs 
 to access the database. These HTML web-pages can be found under /templates
 
-Python Scripts:
+### Python Scripts under directory /python :
 
-To initialize the database using data from JSON file, run
+To initialize the database using JSON file, run
 
 	python3 load-data.py [JSON]
 
-Sample JSON data-file is provided under dummy.json
+Sample JSON data-file is provided under JSON/dummy.json
+
+To add new record to database, run
+
+	python3 add-item.py [JSON]
+
+Sample JSON file to add new entry can be found under JSON/item.json
