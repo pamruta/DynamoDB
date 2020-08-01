@@ -7,14 +7,20 @@
 
 <script>
 
-  // fetch data to load user profiles
-  var url = "http://localhost:5000/fetch";
-  // add filter parameters to url
+  // user fetch profiles from database
+  fetch_data();
 
-  // process API response
-  fetch(url).
-  then(response => response.json()).
-  then(data => stylize(data));
+  function fetch_data()
+  {
+    // fetch data to load user profiles
+    var url = "http://localhost:5000/fetch";
+    // add filter parameters to url
+
+    // process API response
+    fetch(url).
+    then(response => response.json()).
+    then(data => stylize(data));
+  }
 
   // print data on UI
   function stylize(data)
@@ -24,15 +30,8 @@
       var card = document.createElement('div');
       card.style = "width:350px; float: left; border: 1px solid #d8d8d8; box-shadow: 5px 5px 5px #bdbdbd; font-size: 16px; font-family: Nova Square; margin: 20px; padding: 20px";
 
-      /*
-      var title = document.createElement('div');
-      title.style = "width: 100%; background: #585858; height: 30px; font-size: 20px; color: #f2f2f2; text-align: center; padding: 10px";
-      title.innerHTML = data[i]['name'];
-      card.appendChild(title); */
-
       card.innerHTML = data[i]['name'] + " <br><br> " + data[i]['email'] + " | " + data[i]['phone'] + " <br><br> [" + data[i]['skills'] + "] <br><br> [" + data[i]['tools'] + "] <br><br> " + data[i]['address']['city'] + ", " + data[i]['address']['country'];
       document.body.appendChild(card);
-
     }
   }
 </script>

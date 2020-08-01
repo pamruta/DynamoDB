@@ -59,7 +59,7 @@ def fetch_data(city_name="", country_name="", job_role="", tool=""):
     return(json.dumps(result['Items'], indent=2))
 
 # add new profile into database
-def function add_item(item)
+def add_item(item):
     table.put_item(Item=item)
 
 # create REST API with python flask
