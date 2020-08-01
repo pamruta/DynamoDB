@@ -1,6 +1,7 @@
 
 ## 	REST APIs built in Python Flask to Access AWS Dynamo-DB Database
 
+![front-end](images/front-end.png)
 
 To start python flask web application, run 
 
